@@ -1,0 +1,29 @@
+<ion-view view-title="我的订单">
+  <ion-content>
+    <!-- 分段按钮 -->
+    <div class="button-bar">
+      <a class="button">全部订单</a>
+      <a class="button">待付款</a>
+      <a class="button">待收货</a>
+    </div>
+    
+    <!-- 订单数据 -->
+    <div class="list" style="margin-top: 20px;">
+      <div collection-repeat="order in orders">
+        <div class="item item-divider">
+          {{order.order_time}}
+        </div>
+        <div class="item item-thumbnail-left">
+            <img src="{{order.item_thumb}}">
+            <p class="text-wrap">{{order.item_title}}</p>
+            <p>数量：{{order.total}}</p>
+        </div>
+        <div class="item">
+          <span class="pull-left">订单金额：{{order.total_price | currency: '¥'}}</span>
+          <span class="pull-right">{{order.state}}</span>
+        </div>
+      </div>
+      
+    </div>
+  </ion-content>
+</ion-view>

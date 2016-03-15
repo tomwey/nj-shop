@@ -1,0 +1,17 @@
+<ion-view view-title="农家风味">
+  <ion-content>
+    <div class="list list-inset">
+      <div class="item item-icon-right" ng-click="">
+        <span class="balanced">农家：让城里人直接购买乡下的土货</span>
+        <i class="icon ion-ios-arrow-right"></i>
+      </div>
+    </div>
+    
+    <!-- 加载产品 -->
+    <div class="row">
+      <div class="col col-50 col-center" collection-repeat="item in items">
+        <img src="{{item.thumb_image}}" class="img-responsive">
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
