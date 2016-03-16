@@ -1,5 +1,5 @@
 <ion-view view-title="农家风味">
-  <ion-content on-swipe-left="onSwipeLeft()">
+  <ion-content on-swipe-left="onSwipeLeft()" lazy-scroll>
     <div class="list list-inset">
       <div class="item item-icon-right text-center" ng-click="">
         <span class="balanced">农家：让城里人直接购买乡下的土货</span>
@@ -13,7 +13,7 @@
       <div class="col col-50" ng-if="$index < items.length">
         <div class="card">
           <div class="item item-image">
-            <img ng-src="{{items[$index].thumb_image}}" class="full-image">
+            <img image-lazy-src="{{items[$index].thumb_image}}" image-lazy-loader="lines" class="full-image">
           </div>
           <div class="item">
             <p>{{items[$index].title}}</p>
@@ -24,7 +24,7 @@
       <div class="col col-50" ng-if="$index + 1 < items.length">
         <div class="card">
           <div class="item item-image">
-            <img ng-src="{{items[$index+1].thumb_image}}" class="full-image">
+            <img image-lazy-src="{{items[$index+1].thumb_image}}" image-lazy-loader="lines" class="full-image">
           </div>
           <div class="item">
             <p>{{items[$index+1].title}}</p>

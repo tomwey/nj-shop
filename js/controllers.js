@@ -1,13 +1,18 @@
 angular.module('nj-shop.controllers', [])
 
-.controller('HomeCtrl', ['$scope','$http','$state','ItemService',
-   function($scope,$http, $state, ItemService) {
+.controller('HomeCtrl', ['$scope','$http','$state','ItemService','LoadingService','$timeout',
+   function($scope,$http, $state, ItemService, LoadingService, $timeout) {
   $scope.onSwipeLeft = function() {
     $state.go('tab.orders');
   };
   
+  LoadingService.showLoading();
   ItemService.getItemsByCategoryId(1).then(function(items) {
-    $scope.items = items;
+    
+    $timeout(function(){
+      $scope.items = items;
+      LoadingService.hideLoading();
+    }, 3000);
   })
 }])
 

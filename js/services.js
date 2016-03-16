@@ -1,5 +1,22 @@
 angular.module('nj-shop.services', [])
 
+// 显示Loading
+.factory('LoadingService', ['$ionicLoading', function($ionicLoading) {
+  return {
+    showLoading: function() {
+      $ionicLoading.show({
+        // templateUrl: 'templates/loading-spinner.html',
+        template: '<ion-spinner class="spinner-light"></ion-spinner>',
+        noBackdrop: true,
+      })
+    },
+    hideLoading: function() {
+      $ionicLoading.hide();
+    }
+  }
+}])
+
+// 获取产品
 .factory('ItemService', ['$http',function($http) {
   var items = [];
   return {
