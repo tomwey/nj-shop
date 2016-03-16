@@ -11,10 +11,26 @@
     
     <div class="row" ng-repeat="item in items" ng-if="$index % 2 === 0">
       <div class="col col-50" ng-if="$index < items.length">
-        <img ng-src="{{items[$index].thumb_image}}" width="100%">
+        <div class="card">
+          <div class="item item-image">
+            <img ng-src="{{items[$index].thumb_image}}" class="full-image">
+          </div>
+          <div class="item">
+            <p>{{items[$index].title}}</p>
+            <p class="balanced">{{items[$index].price | currency: '¥'}}</p>
+          </div>
+        </div>
       </div>
       <div class="col col-50" ng-if="$index + 1 < items.length">
-        <img ng-src="{{items[$index + 1].thumb_image}}" width="100%">
+        <div class="card">
+          <div class="item item-image">
+            <img ng-src="{{items[$index+1].thumb_image}}" class="full-image">
+          </div>
+          <div class="item">
+            <p>{{items[$index+1].title}}</p>
+            <p class="balanced">{{items[$index+1].price | currency: '¥'}}</p>
+          </div>
+        </div>
       </div>
     </div>
   </ion-content>
