@@ -42,4 +42,14 @@ angular.module('nj-shop.routes', [])
     }
   })
   
+  .state('tab.item-detail', {
+    url: '/item-detail/:item_id',
+    views: {
+      'tab-home': {
+        templateUrl: 'templates/item-detail.html',
+        controller: 'ItemDetailCtrl',
+      }
+    }
+  })
+  
 }])

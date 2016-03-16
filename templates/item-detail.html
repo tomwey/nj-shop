@@ -1,0 +1,11 @@
+<ion-view view-title="{{item.title}}">
+  <ion-content lazy-scroll>
+    <ion-slide-box does-continue="true">
+    
+      <ion-slide ng-repeat="image in item.images">
+        <img image-lazy-src="{{image}}" height="206" width="100%">
+      </ion-slide>
+
+    </ion-slide-box>
+  </ion-content>
+</ion-view>

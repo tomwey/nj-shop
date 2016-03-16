@@ -2,18 +2,23 @@ angular.module('nj-shop.controllers', [])
 
 .controller('HomeCtrl', ['$scope','$http','$state','ItemService','LoadingService','$timeout',
    function($scope,$http, $state, ItemService, LoadingService, $timeout) {
+  
   $scope.onSwipeLeft = function() {
     $state.go('tab.orders');
   };
   
+  // 加载产品
   LoadingService.showLoading();
   ItemService.getItemsByCategoryId(1).then(function(items) {
-    
-    $timeout(function(){
-      $scope.items = items;
-      LoadingService.hideLoading();
-    }, 3000);
-  })
+    $scope.items = items;
+    LoadingService.hideLoading();
+  });
+  
+  // 跳转到产品详情页面
+  $scope.showItemDetail = function(item) {
+    $state.go('tab.item-detail', {item_id: item.id});
+  };
+  
 }])
 
 .controller('OrderCtrl', ['$scope','$state', function($scope, $state) {
@@ -25,35 +30,19 @@ angular.module('nj-shop.controllers', [])
     $state.go('tab.home');
   }
   
-  $scope.orders = [
-  {
-    order_no: '201603150494940',
-    order_time: '2016-03-15 22:30:30',
-    item_thumb: 'http://nongjia.shuiguoshe.com/uploads/category/image/1/thumb_2c7ac056-f6a0-4439-bc45-4273f9d6b2b8.jpg',
-    item_title: '2-3年母鸡/林间散养',
-    total: 1,
-    total_price: 169,
-    state: '待发货'
-  },
-  {
-    order_no: '201603150494940',
-    order_time: '2016-03-15 22:30:30',
-    item_thumb: 'http://nongjia.shuiguoshe.com/uploads/category/image/1/thumb_2c7ac056-f6a0-4439-bc45-4273f9d6b2b8.jpg',
-    item_title: '2-3年母鸡/林间散养2-3年母鸡/林间散养2-3年母鸡/林间散养2-3年母鸡/林间散养',
-    total: 1,
-    total_price: 169,
-    state: '待发货'
-  },
-  {
-    order_no: '201603150494940',
-    order_time: '2016-03-15 22:30:30',
-    item_thumb: 'http://nongjia.shuiguoshe.com/uploads/category/image/1/thumb_2c7ac056-f6a0-4439-bc45-4273f9d6b2b8.jpg',
-    item_title: '2-3年母鸡/林间散养',
-    total: 1,
-    total_price: 169,
-    state: '待发货'
-  },
-  ];
+}])
+
+.controller('ItemDetailCtrl', ['$scope', '$stateParams','ItemService','LoadingService','$ionicSlideBoxDelegate',
+ function($scope, $stateParams, ItemService, LoadingService,$ionicSlideBoxDelegate) {
+  console.log($stateParams);
+  
+  // LoadingService.showLoading();
+  ItemService.getItemById($stateParams.item_id).then(function(item) {
+    $scope.item = item;
+    // console.log(item)
+    // LoadingService.hideLoading();
+    $ionicSlideBoxDelegate.update();
+  });
 }])
 
 .controller('SettingCtrl', ['$scope','$state', function($scope, $state) {

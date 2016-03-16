@@ -28,6 +28,30 @@ angular.module('nj-shop.services', [])
           console.log(items);
           return response.data.data;
         });
+    },
+    getItemById: function(itemId) {
+      return $http.get("http://nongjia.shuiguoshe.com/api/v1/products/" + itemId).then(function(response) {
+        // console.log(response.data.data);
+        // console.log(response.data.data);
+        // var item = angular.fromJson(response.data.data)
+        // var images = [];
+        // console.log(item)
+        // for (var i=0; i<item.images; i++)
+        //   images.push({ url: item.images[i] });
+        // console.log(images);
+        // item.images = images;
+        // console.log(item);
+        
+        var item = response.data.data;
+        // var temp = [];
+        // for (var i=0; i<item.images.length; i++)
+        //   temp.push({ url: item.images[i] });
+        // item.images = temp;
+        //
+        // console.log(item);
+        
+        return item;
+      });
     }
   }
 }])
