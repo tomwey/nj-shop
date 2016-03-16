@@ -1,16 +1,25 @@
 angular.module('nj-shop.controllers', [])
 
-.controller('HomeCtrl', ['$scope','$http', function($scope,$http) {
-  $http.get('http://nongjia.shuiguoshe.com:80/api/v1/products?category_id=1').success(function(data) {
-    console.log(data);
-      $scope.items = data.data;
-    }).
-    error(function(err) {
-      console.log(err);
-    })
+.controller('HomeCtrl', ['$scope','$http','$state','ItemService',
+   function($scope,$http, $state, ItemService) {
+  $scope.onSwipeLeft = function() {
+    $state.go('tab.orders');
+  };
+  
+  ItemService.getItemsByCategoryId(1).then(function(items) {
+    $scope.items = items;
+  })
 }])
 
-.controller('OrderCtrl', ['$scope', function($scope) {
+.controller('OrderCtrl', ['$scope','$state', function($scope, $state) {
+  $scope.onSwipeLeft = function() {
+    $state.go('tab.setting');
+  };
+  
+  $scope.onSwipeRight = function() {
+    $state.go('tab.home');
+  }
+  
   $scope.orders = [
   {
     order_no: '201603150494940',
@@ -42,6 +51,8 @@ angular.module('nj-shop.controllers', [])
   ];
 }])
 
-.controller('UserCtrl', ['$scope', function($scope) {
-  
+.controller('SettingCtrl', ['$scope','$state', function($scope, $state) {
+  $scope.onSwipeRight = function() {
+    $state.go('tab.orders');
+  };
 }])
