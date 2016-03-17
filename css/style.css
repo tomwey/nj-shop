@@ -1,0 +1,90 @@
+.product-info h2,
+.product-info p,
+.product-info div
+ {
+   padding-bottom: 5px;
+}
+
+.product-intro {
+  margin-bottom: 20px;
+}
+
+.product-intro .item h2 {
+  font-size: 1em;
+}
+
+.footer-item {
+  text-align: center;
+  background-color: red;
+  padding: 10px 0;
+}
+
+.bar-60 {
+  height: 60px;
+  padding: 0;
+}
+
+.bar-60 .item-1 {
+  height: 100%;
+  line-height: 60px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.bar-60 .price {
+  width: 30%;
+  color: white;
+}
+
+.bar-60 .total {
+  width: 35%;
+/*  text-align: left;*/
+/*  background-color: yellow;*/
+}
+
+.bar-60 .input-number-control {
+  width: 90%;
+  max-width: 150px;
+  text-align:center;
+  margin-top: 6px;
+  height: 48px;
+  line-height: 48px;
+  background-color: #cacaca;
+  
+  border-radius: 24px;
+  -webkit-border-radius: 24px;
+  -moz-border-radius: 24px;
+/*  line-height:;*/
+}
+
+/* 数字加减控件 */
+.input-number-control {
+  clear: both;
+}
+
+.input-number-control .control {
+  display: block;
+  color: black;
+  width: 40px;
+  height: 100%;
+}
+
+.input-number-control .minus {
+  float: left;
+  margin-left: 2px;
+}
+.input-number-control .plus {
+  float: right;
+  margin-right: 2px;
+}
+
+.input-number-control .digit {
+  color: black;
+}
+
+/* 立即下单 */
+.bar-60 .buy {
+  background-color: green;
+  width: 35%;
+/*  font-size: 1.2em;*/
+}

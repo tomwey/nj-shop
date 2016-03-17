@@ -47,8 +47,9 @@ angular.module('nj-shop.routes', [])
     views: {
       'tab-home': {
         templateUrl: 'templates/item-detail.html',
-        controller: 'ItemDetailCtrl',
+        controller: 'ItemDetailCtrl'
       }
+      
     }
   })
   

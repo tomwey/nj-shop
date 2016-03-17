@@ -11,7 +11,7 @@
     
     <div class="row" ng-repeat="item in items" ng-if="$index % 2 === 0">
       <div class="col col-50" ng-if="$index < items.length">
-        <div class="card" ng-click="showItemDetail(items[$index])">
+        <div class="card" ng-click="showItemDetail(items[$index])" nav-transition="ios">
           <div class="item item-image">
             <img image-lazy-src="{{items[$index].thumb_image}}" image-lazy-loader="lines" class="full-image">
           </div>

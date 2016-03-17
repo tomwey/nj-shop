@@ -36,6 +36,24 @@ angular.module('nj-shop.controllers', [])
  function($scope, $stateParams, ItemService, LoadingService,$ionicSlideBoxDelegate) {
   console.log($stateParams);
   
+  // 数字控件操作
+  $scope.order = { total: 1 };
+  $scope.digitChange = function(flag) {
+    if (flag) {
+      $scope.order.total ++;
+    } else {
+      if ( $scope.order.total > 1 ) {
+        $scope.order.total --;
+      }
+    }
+  }
+  
+  // 下单
+  $scope.checkout = function() {
+    alert($scope.item.id);
+  }
+  
+  // 获取产品详情
   // LoadingService.showLoading();
   ItemService.getItemById($stateParams.item_id).then(function(item) {
     $scope.item = item;

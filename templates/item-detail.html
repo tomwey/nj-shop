@@ -1,11 +1,46 @@
-<ion-view view-title="{{item.title}}">
-  <ion-content lazy-scroll>
+<ion-view hide-tabs>
+  <ion-nav-title>{{item.title}}</ion-nav-title>
+  <ion-content>
     <ion-slide-box does-continue="true">
     
       <ion-slide ng-repeat="image in item.images">
-        <img image-lazy-src="{{image}}" height="206" width="100%">
+        <img ng-src="{{image}}" height="206" width="100%">
       </ion-slide>
 
     </ion-slide-box>
+    
+    <div class="card product-info">
+      <div class="item">
+        <h2>{{item.title}}</h2>
+        <div class="balanced">{{item.price | currency:'¥'}}</div>
+        <p>规格: 2.5斤左右</p>
+        <p>有货: 下单后1-3天内发顺丰</p>
+      </div>
+    </div>
+    <div class="card product-intro">
+      <!-- {{item.detail_images}} -->
+      <div class="item">
+        <h2>产品详情</h2>
+      </div>
+      <div class="item item-image">
+        <div ng-repeat="image in item.detail_images">
+          <img ng-src="{{image}}" class="full-image">
+        </div>
+      </div>
+    </div>
+    <div style="height: 20px;"></div>
   </ion-content>
+  
+  <ion-footer-bar class="bar-dark bar-60">
+    <div class="price item-1">{{item.price * order.total | currency: '¥'}}</div>
+    <div class="total item-1">
+      <div class="input-number-control">
+        <a class="control minus" ng-click="digitChange(false)"><i class="icon ion-minus"></i></a>
+        <span class="digit">{{order.total}}</span>
+        <a class="control plus" ng-click="digitChange(true)"><i class="icon ion-plus"></i></a>
+      </div>
+    </div>
+    <div class="buy item-1" ng-click="checkout()">立即下单</div>
+  </ion-footer-bar>
+  
 </ion-view>
