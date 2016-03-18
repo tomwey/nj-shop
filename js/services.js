@@ -16,6 +16,15 @@ angular.module('nj-shop.services', [])
   }
 }])
 
+// 微信登录服务
+.factory('AuthService', function() {
+  return {
+    isLogined: function() {
+      
+    }
+  };
+})
+
 // 获取产品
 .factory('ItemService', ['$http',function($http) {
   var items = [];
