@@ -7,10 +7,10 @@ angular.module('nj-shop', ['ionic', 'ionicLazyLoad', 'nj-shop.routes', 'nj-shop.
 .run(['$rootScope','$window', '$state', 'AuthService',
   function($rootScope, $window, $state, AuthService) {
   $rootScope.$on('$stateChangeStart', function(event, nextRoute, currentRoute) {
-    if ( nextRoute.access.requireLogin && !AuthService.isLogined() ) {
-      event.preventDefault();
-      
-      $window.location.href = AuthService.getWechatAuthorizeUrl();
-    }
+    // if ( nextRoute.access.requireLogin && !AuthService.isLogined() ) {
+    //   event.preventDefault();
+    //   
+    //   $window.location.href = AuthService.getWechatAuthorizeUrl();
+    // }
   })  
 }])
